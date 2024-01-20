@@ -16,7 +16,7 @@
 
 1. Необходимо установить Octave для работы MATLAB: [octave.org](octave.org)
 2. Добавить путь к Octave в PATH. Например, "C:\Program Files\GNU Octave\Octave-8.4.0\mingw64\bin"
-3. Установить файл setup.py через терминал: `python setup.py install`
+3. `python setup.py install`
 4. В случае возникновения ошибки ERROR: Could not build wheels for pesq, which is required to install pyproject.toml-based projects  
    Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools" необходимо установить Microsoft C++ Build Tools:
    [https://visualstudio.microsoft.com/ru/visual-cpp-build-tools/](https://visualstudio.microsoft.com/ru/visual-cpp-build-tools/). После устновки
