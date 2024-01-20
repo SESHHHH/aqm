@@ -1,46 +1,37 @@
-# Speech Enhancement Metrics
+# AQM
 
-This implementation of Matlab was originally taken from [https://ecs.utdallas.edu/loizou/speech/software.htm](https://ecs.utdallas.edu/loizou/speech/software.htm)
+Расчёт показателей качества VQM: PESQ, CSIG, CBAK, COVL, SSNR.
 
-## REQUIREMENTS
+Реализация MATLAB была взята из [https://ecs.utdallas.edu/loizou/speech/software.htm](https://ecs.utdallas.edu/loizou/speech/software.htm).
 
-Octave must be installed
+Консольная программа позволяет расчитывать показатели качества аудио в виде метрик PESQ, CSIG, CBAK, COVL, SSNR.
+Оценки основаны на шкале MOS от 1 до 5.
 
-```bash
-apt install octave
-pip install oct2py Cython # install Cython before installing pesq
-pip install pesq
-```
+# Использование
 
-## COMPOSITE MEASURE
+Для реализации расчёта метрик необходимо запустить файл main.py и указать путь к оригинальному аудиофайлу clean и к обработанному enhanced,
+после чего в консоли отобразятся рассчитанные метрики.
 
-Usage:
+# Requirements
 
-```matlab
-[Csig,Cbak,Covl,segSNR]=composite(cleanfile.wav,enhanced.wav)
-```
+1. Необходимо установить Octave для работы MATLAB: [octave.org](octave.org)
+2. Добавить путь к Octave в PATH. Например, "C:\Program Files\GNU Octave\Octave-8.4.0\mingw64\bin"
+3. Установить файл setup.py через терминал: `python setup.py install`
+4. В случае возникновения ошибки ERROR: Could not build wheels for pesq, which is required to install pyproject.toml-based projects  
+   Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools" необходимо установить Microsoft C++ Build Tools:
+   [https://visualstudio.microsoft.com/ru/visual-cpp-build-tools/](https://visualstudio.microsoft.com/ru/visual-cpp-build-tools/). После устновки
+   необходимо загрузить пакет "Разработка классических приложений на C++" размером 6 Гб.
+5. В конечном счёте будут установлены следующие пакеты:  
+   setuptools>=40.0.0  
+   Cython  
+   scipy  
+   oct2py  
+   pesq  
+   sox  
 
-where ```Csig``` is the predicted rating of speech distortion, ```Cbak``` is the predicted rating of background distortion, ```Covl``` is the predicted rating of overall quality.
+# Источники
 
-You may run example files included in the zip file. In MATLAB, type:
-
-```matlab
->> [c,b,o,s]=composite('sp09.wav','enhanced_logmmse.wav')
-
-c = 3.3050
-
-b = 2.6160
-
-o = 2.7133
-
-s = 3.9917
-```
-
-where ```sp09.wav``` is the clean file and ```enhanced_logmmse.wav``` is the enhanced file.
-
-## References
-
-MATLAB Source: [https://ecs.utdallas.edu/loizou/speech/software.htm](https://ecs.utdallas.edu/loizou/speech/software.htm)
+MATLAB ресурс: [https://ecs.utdallas.edu/loizou/speech/software.htm](https://ecs.utdallas.edu/loizou/speech/software.htm)
 
 ```bib
 @ARTICLE{4389058,
